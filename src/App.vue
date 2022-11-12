@@ -1,47 +1,33 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { themeModes } from "./constants/theme";
+import "./assets/base.css";
+import TheNavigation from "./layout/TheNavigation.vue";
+import TheContent from "./layout/TheContent.vue";
+import TheFooter from "./layout/TheFooter.vue";
+import { themeStore } from "./store/ThemeStore";
+
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+if (
+  localStorage.getItem("color-theme") === "dark" ||
+  (!("color-theme" in localStorage) && darkThemeMq.matches)
+) {
+  localStorage.setItem("color-theme", "dark");
+  themeStore.setTheme(themeModes.DARK);
+} else {
+  localStorage.setItem("color-theme", "light");
+  themeStore.setTheme(themeModes.LIGHT);
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div
+    class="h-full w-full flex flex-col"
+    :data-theme="
+      themeStore.theme === themeModes.DARK ? 'aphx-dark' : 'aphx-light'
+    "
+  >
+    <TheNavigation />
+    <TheContent />
+    <TheFooter />
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
