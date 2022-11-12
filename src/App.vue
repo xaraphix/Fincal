@@ -24,7 +24,9 @@ if (
     :data-theme="themeStore.theme === themeModes.DARK ? 'dark' : 'light'"
   >
     <TheNavigation />
-    <router-view></router-view>
+    <div class="flex flex-col min-h-screen px-16 xl:px-5 2xl:px-32 py-10">
+      <router-view></router-view>
+    </div>
     <TheFooter />
   </div>
 </template>

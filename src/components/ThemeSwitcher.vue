@@ -4,10 +4,10 @@ import { themeStore } from "@/store/ThemeStore";
 </script>
 <template>
   <div
-    class="flex h-full w-full select-none flex-row items-center gap-5 text-2xl p-4 focus:outline-none focus-visible:outline-none"
+    class="select-none focus:outline-none focus-visible:outline-none mx-5"
     @click="themeStore.toggleTheme()"
   >
-    <div class="mr-10 cursor-pointer">
+    <div class="cursor-pointer">
       <svg
         v-if="themeStore.theme === themeModes.LIGHT"
         class="h-6 w-6 fill-current transition duration-100 ease-in-out"
