@@ -13,7 +13,7 @@
     font-display: swap;
     font-style: normal;
     font-named-instance: 'Regular';
-    src: url('./assets/fonts/Abel/Abel.ttf') format('truetype');
+    src: url('../assets/fonts/Abel/Abel.ttf') format('truetype');
   }
   
   @font-face {
@@ -22,11 +22,10 @@
     font-display: swap;
     font-style: normal;
     font-named-instance: 'Regular';
-    src: url('./assets/fonts/Inter/Inter.ttf') format('truetype');
+    src: url('../assets/fonts/Inter/Inter.ttf') format('truetype');
   }
 
 body {
-  font-family: "Inter", sans-serif;
 }
 
 

@@ -23,7 +23,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Abel"],
-      serif: ["Inter"],
+      serif: ["Abel"],
       mono: ["Abel"],
       display: ["Abel"],
       body: ["Abel"],
