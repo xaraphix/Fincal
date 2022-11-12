@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
+import TheMenuItems from "@/components/TheMenuItems.vue";
 import { themeModes } from "@/constants/theme";
 import { themeStore } from "@/store/ThemeStore";
 import { computed } from "@vue/reactivity";
 import { onMounted, onUnmounted, reactive } from "vue";
-import { loadRouteLocation, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 
 const scrollState = reactive({ scrolled: false });
 const isAtTop = () => {
@@ -44,14 +45,7 @@ onUnmounted(() => window.removeEventListener("scroll", isAtTop));
           tabIndex="{0}"
           class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
         >
-          <li>
-            <a
-              href="#home"
-              class="menu-scroll-link aphx-dark:text-neutral-content rounded aphx-light:text-neutral-focus btn-primary btn border-0 bg-transparent py-0 px-2 hover:bg-opacity-20 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
-            >
-              Calculators
-            </a>
-          </li>
+          <TheMenuItems />
         </ul>
       </div>
       <router-link to="/">
@@ -76,14 +70,7 @@ onUnmounted(() => window.removeEventListener("scroll", isAtTop));
       <ul
         class="menu menu-horizontal mr-10 hidden flex-nowrap gap-12 p-0 xl:flex"
       >
-        <li>
-          <router-link
-            to="/calculators"
-            class="menu-scroll-link aphx-dark:text-neutral-content rounded aphx-light:text-neutral-focus btn-primary btn border-0 bg-transparent py-0 px-2 hover:bg-opacity-20 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
-          >
-            Calculators
-          </router-link>
-        </li>
+        <TheMenuItems />
       </ul>
 
       <ThemeSwitcher />
