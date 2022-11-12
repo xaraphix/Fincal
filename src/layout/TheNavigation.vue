@@ -2,18 +2,13 @@
 import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
 import { themeModes } from "@/constants/theme";
 import { themeStore } from "@/store/ThemeStore";
-import { computed } from "@vue/reactivity";
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, reactive } from "vue";
 
-let top = true;
+const scrollState = reactive({ scrolled: false });
 const isAtTop = () => {
-  top = window.pageYOffset === 0;
+  scrollState.scrolled = window.scrollY != 0;
   console.log(top);
 };
-
-const navbarClass = computed(() => ({
-  "drop-shadow-lg": !top,
-}));
 
 onMounted(() => window.addEventListener("scroll", isAtTop));
 onUnmounted(() => window.removeEventListener("scroll", isAtTop));
@@ -22,7 +17,7 @@ onUnmounted(() => window.removeEventListener("scroll", isAtTop));
 <template>
   <div
     class="navbar sticky top-0 z-[9999] h-12 w-full bg-base-100 py-0 xl:px-5 2xl:mt-16 2xl:px-32"
-    :class="navbarClass"
+    :class="scrollState.scrolled ? 'drop-shadow-xl' : ''"
   >
     <div className="navbar-start">
       <div className="dropdown">
