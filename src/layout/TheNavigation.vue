@@ -6,8 +6,7 @@ import { onMounted, onUnmounted, reactive } from "vue";
 
 const scrollState = reactive({ scrolled: false });
 const isAtTop = () => {
-  scrollState.scrolled = window.scrollY != 0;
-  console.log(top);
+  scrollState.scrolled = window.scrollY > 50;
 };
 
 onMounted(() => window.addEventListener("scroll", isAtTop));
