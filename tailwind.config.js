@@ -37,7 +37,7 @@ module.exports = {
     styled: true,
     themes: [
       {
-        "aphx-light": {
+        light: {
           primary: "#0051ff",
           secondary: "#6a00ff",
           accent: "#a7c0ff",
@@ -49,7 +49,7 @@ module.exports = {
           error: "#c20020",
         },
 
-        "aphx-dark": {
+        dark: {
           primary: "#0051ff",
           secondary: "#6a00ff",
           accent: "#002e4f",
@@ -67,6 +67,6 @@ module.exports = {
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "aphx-dark",
+    darkTheme: "dark",
   },
 };

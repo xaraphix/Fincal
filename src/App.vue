@@ -20,14 +20,14 @@ if (
 
 <template>
   <div
-    class="h-full w-full flex flex-col"
-    :data-theme="
-      themeStore.theme === themeModes.DARK ? 'aphx-dark' : 'aphx-light'
-    "
+    class="h-full w-full flex flex-row overflow-hidden"
+    :data-theme="themeStore.theme === themeModes.DARK ? 'dark' : 'light'"
   >
     <TheNavigation />
-    <div class="flex flex-col w-full">
-      <router-view></router-view>
+    <div class="flex flex-col overflow-y-auto">
+      <div class="flex grow">
+        <router-view></router-view>
+      </div>
       <TheFooter />
     </div>
   </div>

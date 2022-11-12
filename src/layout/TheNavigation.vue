@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
+import { themeModes } from "@/constants/theme";
+import { themeStore } from "@/store/ThemeStore";
 </script>
 
 <template>
   <div
-    class="w-60 h-full shadow-md bg-base-200 absolute"
+    class="w-60 h-full flex flex-col shadow-md bg-base-200"
     id="sidenavSecExample"
   >
     <div class="pt-4 pb-2 px-6">
@@ -12,7 +14,14 @@ import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
         <div class="flex items-center">
           <div class="shrink-0">
             <img
-              src="../assets/fincallogo-dark.svg"
+              v-if="themeStore.theme === themeModes.LIGHT"
+              :src="'../assets/projects/fincallogo-dark.svg'"
+              class="rounded-full w-32"
+              alt="Avatar"
+            />
+            <img
+              v-else
+              :src="'../assets/projects/fincallogo.svg'"
               class="rounded-full w-32"
               alt="Avatar"
             />
@@ -21,7 +30,7 @@ import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
       </a>
     </div>
 
-    <ul class="menu w-full">
+    <ul class="menu w-full grow">
       <li>
         <a class="px-8"><router-link to="/sip">SIP</router-link> </a>
       </li>
@@ -37,10 +46,14 @@ import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
         </a>
       </li>
     </ul>
-    <div class="text-center bottom-0 absolute w-full">
-      <hr class="m-0" />
-      <ThemeSwitcher />
-      <p class="py-2 text-sm text-gray-700">suyashsingh.in</p>
+    <div class="text-center w-full">
+      <hr
+        class="m-0 border-neutral-content dark:border-primary-focus border-opacity-50 dark:border-opacity-10 border"
+      />
+      <div class="flex flex-row">
+        <ThemeSwitcher />
+        <p class="p-4 mr-10 text-sm text-base-content">suyashsingh.in</p>
+      </div>
     </div>
   </div>
 </template>

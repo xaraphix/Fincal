@@ -6,11 +6,17 @@ const initTheme = themeStore.theme;
 </script>
 <template>
   <div
-    class="flex h-full w-full select-none flex-row items-center gap-5 text-2xl"
+    class="flex h-full w-full select-none flex-row items-center gap-5 text-2xl p-4 focus:outline-none focus-visible:outline-none"
   >
-    <label class="swap swap-rotate">
+    <label
+      class="swap swap-rotate focus:outline-none focus-visible:outline-none"
+    >
       <!-- this hidden checkbox controls the state -->
-      <input type="checkbox" @click="themeStore.toggleTheme()" />
+      <input
+        type="checkbox"
+        class="focus:outline-none focus-visible:outline-none"
+        @click="themeStore.toggleTheme()"
+      />
 
       <!-- sun icon -->
       <svg
@@ -18,7 +24,7 @@ const initTheme = themeStore.theme;
           'swap-on': initTheme === themeModes.DARK,
           'swap-off': initTheme === themeModes.LIGHT,
         }"
-        class="fill-current w-10 h-10 focus:outline-none focus-visible:outline-none"
+        class="fill-current w-6 h-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -33,7 +39,7 @@ const initTheme = themeStore.theme;
           'swap-on': initTheme === themeModes.LIGHT,
           'swap-off': initTheme === themeModes.DARK,
         }"
-        class="swap-off fill-current w-10 h-10 focus:outline-none focus-visible:outline-none"
+        class="swap-off fill-current w-6 h-6"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
