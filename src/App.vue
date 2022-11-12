@@ -2,7 +2,6 @@
 import { themeModes } from "./constants/theme";
 import "./assets/base.css";
 import TheNavigation from "./layout/TheNavigation.vue";
-import TheContent from "./layout/TheContent.vue";
 import TheFooter from "./layout/TheFooter.vue";
 import { themeStore } from "./store/ThemeStore";
 
@@ -27,7 +26,9 @@ if (
     "
   >
     <TheNavigation />
-    <TheContent />
-    <TheFooter />
+    <div class="flex flex-col w-full">
+      <router-view></router-view>
+      <TheFooter />
+    </div>
   </div>
 </template>

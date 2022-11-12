@@ -23,16 +23,18 @@ import ThemeSwitcher from "@/components/ThemeSwitcher.vue";
 
     <ul class="menu w-full">
       <li>
-        <a class="px-8"> SIP </a>
+        <a class="px-8"><router-link to="/sip">SIP</router-link> </a>
       </li>
       <li>
-        <a class="px-8"> Lumpsum </a>
+        <a class="px-8"><router-link to="/lumpsum">Lumpsum</router-link> </a>
       </li>
       <li>
-        <a class="px-8"> SWP </a>
+        <a class="px-8"><router-link to="/swp">SWP</router-link> </a>
       </li>
       <li>
-        <a class="px-8"> MF Returns </a>
+        <a class="px-8"
+          ><router-link to="/mf-returns">MF Returns</router-link>
+        </a>
       </li>
     </ul>
     <div class="text-center bottom-0 absolute w-full">
