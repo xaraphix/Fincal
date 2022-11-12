@@ -42,7 +42,7 @@ const calculators = [
       <li v-for="calc in calculators">
         <router-link :to="calc.navLink">
           <div
-            class="card cursor-pointer w-96 bg-base-100 dark:bg-secondary-focus light:bg-opacity-10 dark:bg-opacity-10 hover:bg-primary-focus hover:bg-opacity-25 hover:dark:bg-opacity-70 transition-all ease-in-out duration-300 shadow-md"
+            class="card cursor-pointer w-96 bg-base-100 dark:bg-secondary-focus light:bg-opacity-10 dark:bg-opacity-10 hover:bg-primary-focus hover:bg-opacity-25 hover:dark:bg-opacity-70 transition-all ease-in-out duration-300 border-neutral border-opacity-10 border"
           >
             <figure class="px-10 pt-10">
               <img

@@ -8,7 +8,10 @@ export const routes = [
   {
     path: "/",
     component: CalculatorsVue,
-    alias: "/calculators",
+  },
+  {
+    path: "/calculators",
+    component: CalculatorsVue,
     children: [
       { path: "sip", component: SIP },
       { path: "swp", component: SWP },

@@ -54,20 +54,22 @@ onUnmounted(() => window.removeEventListener("scroll", isAtTop));
           </li>
         </ul>
       </div>
-      <a class="btn-ghost btn px-0 normal-case">
-        <img
-          v-if="themeStore.theme === themeModes.LIGHT"
-          :src="'../assets/projects/fincallogo-dark.svg'"
-          class="rounded-full w-32"
-          alt="Avatar"
-        />
-        <img
-          v-else
-          :src="'../assets/projects/fincallogo.svg'"
-          class="rounded-full w-32"
-          alt="Avatar"
-        />
-      </a>
+      <router-link to="/">
+        <a class="btn-ghost btn px-0 normal-case">
+          <img
+            v-if="themeStore.theme === themeModes.LIGHT"
+            :src="'../assets/projects/fincallogo-dark.svg'"
+            class="rounded-full w-32"
+            alt="Avatar"
+          />
+          <img
+            v-else
+            :src="'../assets/projects/fincallogo.svg'"
+            class="rounded-full w-32"
+            alt="Avatar"
+          />
+        </a>
+      </router-link>
     </div>
 
     <div class="navbar-end">
@@ -76,7 +78,7 @@ onUnmounted(() => window.removeEventListener("scroll", isAtTop));
       >
         <li>
           <router-link
-            to="/"
+            to="/calculators"
             class="menu-scroll-link aphx-dark:text-neutral-content rounded aphx-light:text-neutral-focus btn-primary btn border-0 bg-transparent py-0 px-2 hover:bg-opacity-20 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
           >
             Calculators
@@ -87,11 +89,26 @@ onUnmounted(() => window.removeEventListener("scroll", isAtTop));
       <ThemeSwitcher />
     </div>
   </div>
-  <div class="mt-16 px-16 xl:px-5 2xl:px-32 py-10 text-sm breadcrumbs">
+  <div class="mt-16 px-16 xl:px-32 2xl:px-36 py-10 text-sm breadcrumbs">
     {{}}
     <ul>
+      <li>
+        <router-link to="/">
+          <a>HOME</a>
+        </router-link>
+      </li>
+
       <li v-for="(p, idx) in routes.path.substring(1).split('/')" :key="idx">
-        <router-link :to="'/' + p">
+        <router-link
+          :to="
+            '/' +
+            routes.path
+              .substring(1)
+              .split('/')
+              .slice(0, idx + 1)
+              .join('/')
+          "
+        >
           <a>{{ p.toUpperCase() }}</a>
         </router-link>
       </li>
